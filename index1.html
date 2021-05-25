@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thơ Phạm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app">
+        <div class="container">
+            <div class="content">
+                <h1>H I <span></span> T H Ơ!</h1>
+                <h3 id="question">Cậu Có Người Yêu Chưa</h3>
+                <a id="By" href="#" onclick="addClass()">Tớ Chưa (^.^)</a>
+                <a id="Bn" href="#" onmouseover="f()">Tớ Có Rồi</a>
+            </div>
+        </div>
+        <div class="model">
+            <div class="model__content">
+                <h3>Tớ Biết Cậu Chưa Có Mà</h3>
+                <div class="model__input">
+                    <input class="dieumuonnoi" type="text" required placeholder="cậu muốn nói gì với tớ không ...">
+                    <a href="#" onclick="noiginao()">Gửi Để Xem </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        function addClass() {
+            document.querySelector('.model').classList.toggle('addmodal');
+        }
+
+        function noiginao() {
+            var dieumuonnoi = document.querySelector('.dieumuonnoi').value;
+            if (dieumuonnoi.length == 0) {
+                alert('sao bạn k nói gì');
+            } else {
+                console.log(dieumuonnoi);
+                var formData = new FormData();
+                formData.append('entry.1441791793', dieumuonnoi);
+                var request = new XMLHttpRequest();
+                request.open("POST",
+                    "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfGoxrfxYS8ZB0woS8Iq9IstYf4YkMV0DYeUpoVIX_7Ts0Gfw/formResponse"
+                );
+                request.send(formData);
+            }
+        }
+    </script>
+    <script>
+        function f1() {
+
+        }
+        var flag = 1;
+
+        function f() {
+            var Bn = document.getElementById('Bn');
+            var aWidth = document.body.clientWidth || document.documentElement.clientWidth;
+            var aHeight = document.body.clientHeight || document.documentElement.clientHeight;
+            var sJs1 = Math.floor(Math.random() * aHeight);
+            var sJs2 = Math.floor(Math.random() * aWidth);
+            if (flag == 1) {
+                Bn.style.top = sJs1 + 'px';
+                Bn.style.left = sJs2 + 'px';
+                flag = 2;
+
+            } else if (flag == 2) {
+                Bn.style.top = sJs1 + 'px';
+                Bn.style.left = sJs2 + 'px';
+                flag = 3;
+            } else if (flag == 3) {
+                Bn.style.top = 235 + 'px';
+                Bn.style.left = 286 + 'px';
+                flag = 4;
+            } else if (flag == 4) {
+                Bn.style.top = 235 + 'px';
+                Bn.style.left = 360 + 'px';
+                flag = 1;
+            }
+        }
+
+        function f2() {
+
+        }
+    </script>
+</body>
+
+</html>
